@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header class="name">
+        <h1>Crystal Collector</h1>
+    </header>
+
+
+    <div class="directions">
+
+        <p>
+            You will be given a random number at the start of the game.
+        </p>
+
+        <p>
+            There are four crystals below. By clicking on the crystal you will add a specific amount of points to your
+            total score.
+        </p>
+
+        <p>
+            You win the game by matching your total score to random number, you lose the game if your total score goes
+            above the random number.
+        </p>
+
+        <p>
+            The value of each crystal is hidden from you until you click on it.
+        </p>
+
+        <p>
+            Each time a game starts the value of the crystals will change.
+        </p>
+
+    </div>
+
+    <div class="gameData">
+
+        <span class="randomNum-text">
+            <h2>0</h2>
+        </span>
+
+    </div>
+
+    <div class="winLoss">
+
+        <span class="wins-text">
+            <h3>Wins: </h3>
+        </span>
+
+        <span class="loss-text">
+            <h3>Losses: </h3>
+        </span>
+
+    </div>
+
+    <div class="crystals">
+
+        <img src="https://cdn10.bigcommerce.com/s-lltm6e/products/983/images/4341/tourmaline_blk__96589.1428770083.700.700.jpg?c=2"
+            alt="black crystal" id="crystal-black" width="200" height="200">
+
+        <img src="http://maggiesscienceconnection.weebly.com/uploads/5/1/0/5/5105330/801089655_orig.jpg" alt="white crystal"
+            id="crystal-white" width="200" height="200">
+
+        <img src="https://beadage.net/wp-content/uploads/2015/08/blue-zircon-crystal-gemstone-300x300.jpg" alt="blue crystal"
+            id="crystal-blue" width="200" height="200">
+
+    </div>
+
+    <div class="userData">
+
+        <h3>Your total score is: </h3>
+        <span class="userscore-text"></span>
+
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var wins = 0;
+            var losses = 0;
+            var userScore;
+            var randomNum;
+
+            jQuery(".crystal-black").on("click", function () {
+
+                // Clicking the button triggers an alert message.
+                alert("You clicked a crystal!");
+
+            });
+
+        });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
