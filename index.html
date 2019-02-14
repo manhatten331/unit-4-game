@@ -43,21 +43,15 @@
 
     <div class="gameData">
 
-        <span class="randomNum-text">
-            <h2>0</h2>
-        </span>
+        <h2>Number to guess: <span class="randomNum-text"></span></h2>
 
     </div>
 
     <div class="winLoss">
 
-        <span class="wins-text">
-            <h3>Wins: </h3>
-        </span>
+        <h3>Wins: <span class="wins-text"></span></h3>
 
-        <span class="loss-text">
-            <h3>Losses: </h3>
-        </span>
+        <h3>Losses: <span class="loss-text"></span></h3>
 
     </div>
 
@@ -72,27 +66,140 @@
         <img src="https://beadage.net/wp-content/uploads/2015/08/blue-zircon-crystal-gemstone-300x300.jpg" alt="blue crystal"
             id="crystal-blue" width="200" height="200">
 
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLD_CWEdlGwkacpOvMKahkRKP7rMswjlEe6LHv5Ryxq4Rkoc_cRQ"
+            alt="purple crystal" id="crystal-purple" width="200" height="200">
+
     </div>
 
     <div class="userData">
 
-        <h3>Your total score is: </h3>
-        <span class="userscore-text"></span>
+        <h3>Your total score is: <span class="userScore-text"></span></h3>
+
 
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
+
+    <script type="text/javascript">
+
         $(document).ready(function () {
+
             var wins = 0;
             var losses = 0;
-            var userScore;
-            var randomNum;
+            var userScore = 0;
+            var randomNum = Math.floor(Math.random() * 100) + 1;
 
-            $(".crystal-black").on("click", function () {
+            $(".randomNum-text").text(randomNum);
 
-                alert("You clicked a crystal!");
+            function reset(){
+                userScore = 0;
+               randomNum = Math.floor(Math.random() * 100) + 1;
+            }
+
+            $("#crystal-black").on('click', function () {
+                console.log(randomNum);
+
+                userScore += 5;
+
+                if (userScore === randomNum) {
+
+                    ++wins;
+
+                    $(".wins-text").text(wins);
+
+                    reset();
+                    
+                    console.log (randomNum);
+                } else if (userScore >= randomNum) {
+
+                    ++losses;
+
+                    $(".loss-text").text(losses);
+                    
+                    reset();
+                
+                    console.log (randomNum);
+                }
+
+                $(".userScore-text").text(userScore);
 
             });
+
+            $("#crystal-white").on('click', function () {
+
+                userScore += 3;
+
+                $(".userScore-text").text(userScore);
+
+                if (userScore === randomNum) {
+
+                    ++wins;
+
+                    $(".wins-text").text(wins);
+
+                    reset();
+
+                } else if (userScore >= randomNum) {
+
+                    ++losses;
+
+                    $(".loss-text").text(losses);
+
+                    reset();
+                }
+
+            });
+
+            $("#crystal-blue").on('click', function () {
+
+                userScore += 7;
+
+                $(".userScore-text").text(userScore);
+
+                if (userScore === randomNum) {
+
+                    ++wins;
+
+                    $(".wins-text").text(wins);
+
+                    reset();
+
+                } else if (userScore >= randomNum) {
+
+                    ++losses;
+
+                    $(".loss-text").text(losses);
+
+                    reset();
+                }
+
+
+            });
+
+            $("#crystal-purple").on('click', function () {
+
+                userScore += 10;
+
+                $(".userScore-text").text(userScore);
+
+                if (userScore === randomNum) {
+
+                    ++wins;
+
+                    $(".wins-text").text(wins);
+
+                    reset();
+
+                } else if (userScore >= randomNum) {
+
+                    ++losses;
+
+                    $(".loss-text").text(losses);
+
+                    reset();
+                }
+
+            });
+
 
         });
     </script>
