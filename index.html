@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Can you guess the random number?</title>
 </head>
 
 <body>
@@ -90,12 +91,50 @@
 
             $(".randomNum-text").text(randomNum);
 
-            function reset(){
+            function reset() {
                 userScore = 0;
-               randomNum = Math.floor(Math.random() * 100) + 1;
+                randomNum = Math.floor(Math.random() * 100) + 1;
             }
 
+            // When the black crystal is clicked it will add 5 to the user's score
             $("#crystal-black").on('click', function () {
+                console.log(randomNum);
+
+                userScore += 5;
+
+                // if the user's score equals the random number generated from the cpu add 1 to their win and reset the random number and user's score
+                if (userScore === randomNum) {
+
+                    ++wins;
+
+                    $(".wins-text").text(wins);
+
+                    reset();
+
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
+
+                    // if the user's score goes over the random number then add 1 to their losses and reset the random number and user's score
+                } else if (userScore > randomNum) {
+
+                    ++losses;
+
+                    $(".loss-text").text(losses);
+
+                    reset();
+
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
+                }
+
+                $(".userScore-text").text(userScore);
+
+            });
+
+            // DRY (I'm sorry but it works lol)
+            $("#crystal-white").on('click', function () {
                 console.log(randomNum);
 
                 userScore += 5;
@@ -107,53 +146,33 @@
                     $(".wins-text").text(wins);
 
                     reset();
-                    
-                    console.log (randomNum);
-                } else if (userScore >= randomNum) {
 
-                    ++losses;
+                    console.log(randomNum);
 
-                    $(".loss-text").text(losses);
-                    
-                    reset();
-                
-                    console.log (randomNum);
-                }
+                    $(".randomNum-text").text(randomNum);
 
-                $(".userScore-text").text(userScore);
-
-            });
-
-            $("#crystal-white").on('click', function () {
-
-                userScore += 3;
-
-                $(".userScore-text").text(userScore);
-
-                if (userScore === randomNum) {
-
-                    ++wins;
-
-                    $(".wins-text").text(wins);
-
-                    reset();
-
-                } else if (userScore >= randomNum) {
+                } else if (userScore > randomNum) {
 
                     ++losses;
 
                     $(".loss-text").text(losses);
 
                     reset();
+
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
                 }
+
+                $(".userScore-text").text(userScore);
 
             });
 
+            // DRY
             $("#crystal-blue").on('click', function () {
+                console.log(randomNum);
 
-                userScore += 7;
-
-                $(".userScore-text").text(userScore);
+                userScore += 5;
 
                 if (userScore === randomNum) {
 
@@ -163,23 +182,32 @@
 
                     reset();
 
-                } else if (userScore >= randomNum) {
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
+
+                } else if (userScore > randomNum) {
 
                     ++losses;
 
                     $(".loss-text").text(losses);
 
                     reset();
+
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
                 }
 
+                $(".userScore-text").text(userScore);
 
             });
 
+            // DRY
             $("#crystal-purple").on('click', function () {
+                console.log(randomNum);
 
-                userScore += 10;
-
-                $(".userScore-text").text(userScore);
+                userScore += 5;
 
                 if (userScore === randomNum) {
 
@@ -189,16 +217,30 @@
 
                     reset();
 
-                } else if (userScore >= randomNum) {
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
+
+                } else if (userScore > randomNum) {
 
                     ++losses;
 
                     $(".loss-text").text(losses);
 
                     reset();
+
+                    console.log(randomNum);
+
+                    $(".randomNum-text").text(randomNum);
                 }
 
+                $(".userScore-text").text(userScore);
+
             });
+
+            
+
+            
 
 
         });
